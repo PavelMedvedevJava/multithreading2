@@ -26,7 +26,11 @@ public class FizzBuzz {
 
 
             if (i % 3 == 0 && i % 5 != 0) {
-                System.out.print(fizz+delimiter);
+                if (i != n) {
+                    System.out.print(fizz + delimiter);
+                } else {
+                    System.out.print(fizz);
+                }
             }
             phaser.arriveAndAwaitAdvance();
 
@@ -39,7 +43,11 @@ public class FizzBuzz {
 
 
             if (i % 5 == 0 && i % 3 != 0) {
-                System.out.print(buzz);
+                if (i!=n) {
+                    System.out.print(buzz + delimiter);
+                } else {
+                    System.out.print(buzz );
+                }
             }
             phaser.arriveAndAwaitAdvance();
 
