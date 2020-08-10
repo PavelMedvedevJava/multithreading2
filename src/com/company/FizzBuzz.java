@@ -4,10 +4,12 @@ import java.util.concurrent.Phaser;
 
 public class FizzBuzz {
 
+    private final String fizz = "Fizz";
+    private final String delimiter = ",";
+    private final String buzz = "Buzz";
+    private final String fizzBuzz = "FizzBuzz";
 
     private static  Phaser phaser=new Phaser(4) ;
-
-
     private int n;
 
 
@@ -24,7 +26,7 @@ public class FizzBuzz {
 
 
             if (i % 3 == 0 && i % 5 != 0) {
-                System.out.print("fizz,");
+                System.out.print(fizz+delimiter);
             }
             phaser.arriveAndAwaitAdvance();
 
@@ -37,7 +39,7 @@ public class FizzBuzz {
 
 
             if (i % 5 == 0 && i % 3 != 0) {
-                System.out.print("buzz,");
+                System.out.print(buzz);
             }
             phaser.arriveAndAwaitAdvance();
 
@@ -52,7 +54,12 @@ public class FizzBuzz {
 
 
             if (i % 3 == 0 && i % 5 == 0) {
-                System.out.print("FizzBuzz,");
+                if (i != n) {
+
+                    System.out.print(fizzBuzz + delimiter);
+                } else {
+                    System.out.print(fizzBuzz );
+                }
             }
             phaser.arriveAndAwaitAdvance();
         }
@@ -65,7 +72,12 @@ public class FizzBuzz {
 
 
             if (i % 3 != 0 && i % 5 != 0) {
-                System.out.print(i + ",");
+                if (i!=n) {
+                    System.out.print(i + delimiter);
+                } else {
+
+                    System.out.print(i );
+                }
             }
             phaser.arriveAndAwaitAdvance();
 
